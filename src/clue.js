@@ -115,12 +115,58 @@ var Theater = {name: 'Theater'}
 var GuestHouse = {name: 'Guest House'}
 var Patio = {name: 'Patio'}
 
+// Iteration 1
 
 // Characters Collection
-var charactersArray = [drOrchid, drOrchid, profPlum, missScarlet, mrsPeacock, mrMustard];
+var suspectsArray = [mrGreen, drOrchid, profPlum, missScarlet, mrsPeacock, mrMustard];
 
 // Rooms' Collection
 var roomsArray = [rope, knife, candlestick, dumbbell, poison, axe, bat, trophy, pistol];
 
 // Weapons Collection
 var weaponsArray = [DinningRoom, Conservatory, Kitchen, Study, Library, BilliardRoom, Lounge, Ballroom, Hall, Spa,  LivingRoom, Observatory, Theater, GuestHouse, Patio];
+
+
+//Iteration 2: Create the mystery
+
+function selectRandom(arr){
+
+  for (let i= 0; i<arr.length; i++){
+
+    var item = arr[Math.floor(Math.random() * arr.length)]
+  }
+    return item;
+}
+
+console.log(selectRandom(roomsArray));
+
+function pickMystery(){
+  var mistery = []
+
+    var itemSuspect = selectRandom(suspectsArray);
+
+    var itemRoom = selectRandom(roomsArray);
+
+    var itemWeapon = selectRandom(weaponsArray);
+
+    mistery.push(itemSuspect,itemRoom,itemWeapon);
+
+  return mistery;
+} 
+console.log(pickMystery());
+
+
+//Iteration 3: Reveal the mystery
+
+//Aux varibale to pass the object to the function
+var crime = pickMystery();
+
+function revealMystery(){
+
+var misteryResolved = `${crime[0].first_name} ${crime[0].last_name} killed Mr. Boddy 
+using the ${crime[1].name}  in the ${crime[2].name}!`
+
+return misteryResolved;
+} 
+
+console.log(revealMystery(crime));
